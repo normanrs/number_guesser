@@ -19,19 +19,19 @@
           <input type='text' name="max" id="max" class="light" placeholder="max number" /><button id="submit" class="" onclick="aMin()">Set Max</button>
         </div>
         <div class="row input">
-          <input type="number" name="guessInput" id="guessInput" class="light" placeholder="Enter your guess">
+          <input type="number" pattern="[0-9.]+" onchange="handleChange(this);" name="guessInput" id="guessInput" class="light" placeholder="Enter your guess">
         </div>
         <div class="row commit">
           <button type="button" class="btn btn-dark" id="guessBtn" onclick="aGuess()" >Guess</button>
-          <button type="button" class="btn btn-dark" id="clear">Clear</button>
+          <button type="button" class="btn btn-dark" id="clearBtn" onclick="aClear()" >Clear</button>
         </div>
         <div class="row feedback">
-          <h2 class="light" id="last-note"></h2>
+          <h4 class="light" id="lastNote"></h4>
           <h3 class="light" id="lastGuess"></h3>
-          <h2 class="light" id="results"></h2>
+          <h2 class="light" id="result"></h2>
         </div>
         <div class="row reset">
-        <button type="button" class="btn btn-dark" id="reset">Reset</button>
+        <button type="button" class="btn btn-dark" id="reset" onclick="aReset()">Reset</button>
         </div>
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

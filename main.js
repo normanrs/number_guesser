@@ -11,23 +11,39 @@ function aMax(){
 
 var randomNumber = Math.floor(Math.random() * max ) + min;
 
-var resultText = 'Make a guess';
-
 function aGuess(){
   var guess = document.getElementById('guessInput').value;
+  lastGuess.innerHTML = guess;
 
   if (parseInt(guess) === randomNumber ) {
-    lastGuess.innerHTML = 'BOOM!';
+    result.innerHTML = 'BOOM!';
   }
   else if (parseInt(guess) > randomNumber){
-    lastGuess.innerHTML = 'Your guess is too high';
+    result.innerHTML = 'Your guess is too high';
   }
   else if (parseInt(guess) < randomNumber){
-    lastGuess.innerHTML = 'Your guess is too low';
+    result.innerHTML = 'Your guess is too low';
   }
   else {
-    lastGuess.innerHTML =  'Invalid entry';
+    result.innerHTML =  'Invalid entry';
   }
 }
+
+function aClear(){
+  document.getElementById('guessInput').value = '';
+}
+
+function aReset() {
+  location.reload();
+}
+
+function handleChange(input) {
+    if (input.value < 0) {lastNote.innerHTML = 'Input too low';
+      document.getElementById('guessInput').value = '';
+    }
+    if (input.value > 100) {lastNote.innerHTML = 'Input too high';
+      document.getElementById('guessInput').value = '';
+    }
+  }
 
 document.write('<p>Current range: ' + min + ' - ' + max + '</p>');
