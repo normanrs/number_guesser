@@ -3,33 +3,36 @@ body {
   font-family: 'Open Sans';
 }
 
-.navbar.center .navbar-inner .nav {
-  width: 100%;
-  text-align: center;
-  > ul {
-    float: none;
-    display: inline-block;
-  }
-}
-
 .navbar-nav.navbar-center {
     position: relative;
     left: 44%;
     transform: translatex(-50%);
+    > ul {
+      float: none;
+      display: inline-block;
+    }
+}
+
+.row {
+  padding: 25px
 }
 
 #title-1 {
     color: red;
     font-weight: 800;
-
 }
 
 #title-2 {
     color: white;
     font-weight: 400;
-
 }
 
+.btn-dark {
+  background: gray;
+  color: white;
+  border-radius: 40px;
+
+}
 
 .light {
   font-weight: 400;
