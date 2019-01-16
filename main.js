@@ -1,20 +1,33 @@
-var randomNumber = Math.floor(Math.random() * 100 ) + 1;
+var min = 1
+var max = 100
 
-var guess = prompt('I am thinking of a random number between 1 and 100. What is it?');
-
-if (parseInt(guess) === randomNumber ) {
-
-  document.write('<p>BOOM!</p>');
-
-}
-else if (parseInt(guess) > randomNumber){
-
-  document.write('<p>That is too high</p>');
-
+function aMin(){
+  var min = document.getElementById('min').value;
 }
 
-else {
-
-  document.write('<p>That is too low</p>');
-
+function aMax(){
+  var max = document.getElementById('max').value;
 }
+
+var randomNumber = Math.floor(Math.random() * max ) + min;
+
+var resultText = 'Make a guess';
+
+function aGuess(){
+  var guess = document.getElementById('guessInput').value;
+
+  if (parseInt(guess) === randomNumber ) {
+    lastGuess.innerHTML = 'BOOM!';
+  }
+  else if (parseInt(guess) > randomNumber){
+    lastGuess.innerHTML = 'Your guess is too high';
+  }
+  else if (parseInt(guess) < randomNumber){
+    lastGuess.innerHTML = 'Your guess is too low';
+  }
+  else {
+    lastGuess.innerHTML =  'Invalid entry';
+  }
+}
+
+document.write('<p>Current range: ' + min + ' - ' + max + '</p>');
