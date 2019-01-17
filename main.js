@@ -1,23 +1,19 @@
 sessionStorage.setItem("minNum", 1);
 sessionStorage.setItem("maxNum", 100);
-sessionStorage.setItem("randNum", Math.floor(Math.random() * 100 ) + 1)
 
 function aRange(){
-  let minIn = document.getElementById('minRange').value || 1;
-  let maxIn = document.getElementById('maxRange').value || 100;
-  sessionStorage.setItem("minNum", minIn);
-  sessionStorage.setItem("maxNum", maxIn);
-  sessionStorage.setItem("randNum", Math.floor(Math.random() * maxIn ) + minIn)
-  currentRange.innerHTML = ('Current range: ' + minIn + ' - ' + maxIn);
+  sessionStorage.setItem("minNum", (document.getElementById('minRange').value) || 1);
+  sessionStorage.setItem("maxNum", (document.getElementById('maxRange').value) || 100);
 }
 
 function aGuess(){
-  let min = sessionStorage.getItem("minNum");
-  let max = sessionStorage.getItem("maxNum");
-  let randomNumber = parseInt(sessionStorage.getItem("randNum"));
+  let min = parseInt(sessionStorage.getItem("minNum"));
+  let max = parseInt(sessionStorage.getItem("maxNum"));
+  let randomNumber = getRandom();
   var guess = parseInt(document.getElementById('guessInput').value);
+  currentRange.innerHTML = ('Current range: ' + min + ' - ' + max);
   lastGuess.innerHTML = guess;
-  // alert(typeof(randomNumber));
+  // alert(max);
 
   if ( guess === randomNumber ) {
     result.innerHTML = 'BOOM!';
@@ -29,8 +25,14 @@ function aGuess(){
     result.innerHTML = 'Your guess is too low' + randomNumber;
   }
   else {
-    result.innerHTML =  'Invalid entry';
+    result.innerHTML = 'Invalid entry';
   }
+}
+
+function getRandom() {
+  let min = parseInt(sessionStorage.getItem("minNum"));
+  let max = parseInt(sessionStorage.getItem("maxNum"));
+  return parseInt(Math.random() * (max - min) + min);
 }
 
 function aClear(){
