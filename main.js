@@ -21,18 +21,10 @@ function aGuess(){
 }
 
 function evalGuess(guess, randomNumber) {
-  if ( guess === randomNumber ) {
-    return 'BOOM!';
-  }
-  else if ( guess > randomNumber){
-    return 'Your guess is too high' + randomNumber;
-  }
-  else if ( guess < randomNumber){
-    return 'Your guess is too low' + randomNumber;
-  }
-  else {
-    return 'Invalid entry';
-  }
+  if ( guess === randomNumber ) { return 'BOOM!'; }
+  else if ( guess > randomNumber){ return 'Your guess is too high'; }
+  else if ( guess < randomNumber){ return 'Your guess is too low'; }
+  else { return 'Invalid entry'; }
 }
 
 function getRandom() {
