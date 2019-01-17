@@ -15,8 +15,7 @@ function aGuess(){
   let guess = parseInt(document.getElementById('guessInput').value);
   currentRange.innerHTML = ('Current range: ' + min + ' - ' + max);
   lastGuess.innerHTML = guess;
-  enableBtn("resetBtn");
-  enableBtn("clearBtn");
+  enableBtn("resetBtn"); enableBtn("clearBtn");
   let feedback = evalGuess(guess, randomNumber);
   result.innerHTML = feedback;
 }
