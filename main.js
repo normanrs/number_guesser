@@ -1,19 +1,23 @@
 sessionStorage.setItem("minNum", 1);
 sessionStorage.setItem("maxNum", 100);
+sessionStorage.setItem("randNum", getRandom());
 
 function aRange(){
   sessionStorage.setItem("minNum", (document.getElementById('minRange').value) || 1);
   sessionStorage.setItem("maxNum", (document.getElementById('maxRange').value) || 100);
+  sessionStorage.setItem("randNum", getRandom());
 }
 
 function aGuess(){
   let min = parseInt(sessionStorage.getItem("minNum"));
   let max = parseInt(sessionStorage.getItem("maxNum"));
-  let randomNumber = getRandom();
+  let randomNumber = parseInt(sessionStorage.getItem("randNum"));
   var guess = parseInt(document.getElementById('guessInput').value);
   currentRange.innerHTML = ('Current range: ' + min + ' - ' + max);
   lastGuess.innerHTML = guess;
   // alert(max);
+  enableBtn("resetBtn");
+  enableBtn("clearBtn");
 
   if ( guess === randomNumber ) {
     result.innerHTML = 'BOOM!';
@@ -35,15 +39,6 @@ function getRandom() {
   return parseInt(Math.random() * (max - min) + min);
 }
 
-function aClear(){
-  document.getElementById('guessInput').value = '';
-}
-
-function aReset() {
-  sessionStorage.clear();
-  location.reload();
-}
-
 function handleChange(input) {
   let min = sessionStorage.getItem("minNum");
   let max = sessionStorage.getItem("maxNum");
@@ -55,4 +50,21 @@ function handleChange(input) {
   }
   else {lastNote.innerHTML = 'Good guess';
   }
+}
+
+function disableBtn(button) {
+  document.getElementById(button).disabled = true;
+}
+
+function enableBtn(button) {
+  document.getElementById(button).disabled = false;
+}
+
+function aClear(){
+  document.getElementById('guessInput').value = '';
+}
+
+function aReset() {
+  sessionStorage.clear();
+  location.reload();
 }
