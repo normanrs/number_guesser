@@ -14,9 +14,10 @@ function aRange(){
 function aGuess(){
   let min = sessionStorage.getItem("minNum");
   let max = sessionStorage.getItem("maxNum");
-  let randomNumber = sessionStorage.getItem("randNum");
-  var guess = document.getElementById('guessInput').value;
+  let randomNumber = parseInt(sessionStorage.getItem("randNum"));
+  var guess = parseInt(document.getElementById('guessInput').value);
   lastGuess.innerHTML = guess;
+  // alert(typeof(randomNumber));
 
   if ( guess === randomNumber ) {
     result.innerHTML = 'BOOM!';
