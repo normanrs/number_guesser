@@ -12,24 +12,27 @@ function aGuess(){
   let min = parseInt(sessionStorage.getItem("minNum"));
   let max = parseInt(sessionStorage.getItem("maxNum"));
   let randomNumber = parseInt(sessionStorage.getItem("randNum"));
-  var guess = parseInt(document.getElementById('guessInput').value);
+  let guess = parseInt(document.getElementById('guessInput').value);
   currentRange.innerHTML = ('Current range: ' + min + ' - ' + max);
   lastGuess.innerHTML = guess;
-  // alert(max);
   enableBtn("resetBtn");
   enableBtn("clearBtn");
+  let feedback = evalGuess(guess, randomNumber);
+  result.innerHTML = feedback;
+}
 
+function evalGuess(guess, randomNumber) {
   if ( guess === randomNumber ) {
-    result.innerHTML = 'BOOM!';
+    return 'BOOM!';
   }
   else if ( guess > randomNumber){
-    result.innerHTML = 'Your guess is too high' + randomNumber;
+    return 'Your guess is too high' + randomNumber;
   }
   else if ( guess < randomNumber){
-    result.innerHTML = 'Your guess is too low' + randomNumber;
+    return 'Your guess is too low' + randomNumber;
   }
   else {
-    result.innerHTML = 'Invalid entry';
+    return 'Invalid entry';
   }
 }
 
@@ -40,12 +43,12 @@ function getRandom() {
 }
 
 function handleChange(input) {
-  let min = sessionStorage.getItem("minNum");
-  let max = sessionStorage.getItem("maxNum");
-  if (input.value < min.value ) {lastNote.innerHTML = 'Input too low ' + min;
+  let min = parseInt(sessionStorage.getItem("minNum"));
+  let max = parseInt(sessionStorage.getItem("maxNum"));
+  if (input.value < min ) {lastNote.innerHTML = 'Input too low ' + min;
     document.getElementById('guessInput').value = '';
   }
-  else if (input.value > max.value ) {lastNote.innerHTML = 'Input too high ' + max;
+  else if (input.value > max ) {lastNote.innerHTML = 'Input too high ' + max;
     document.getElementById('guessInput').value = '';
   }
   else {lastNote.innerHTML = 'Good guess';
