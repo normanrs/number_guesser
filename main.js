@@ -3,9 +3,10 @@ var maxNum = 100;
 var randNum = getRandom();
 
 function aRange(){
-  minNum = document.getElementById('minRange').value || minNum;
-  maxNum = document.getElementById('maxRange').value || maxNum;
+  minNum = parseInt(document.getElementById('minRange').value) || minNum;
+  maxNum = parseInt(document.getElementById('maxRange').value) || maxNum;
   randNum = getRandom();
+  currentRange.innerHTML = ( 'Current range: ' + minNum + ' - ' + maxNum );
 }
 
 function aGuess(){
@@ -14,7 +15,7 @@ function aGuess(){
   lastGuess.innerHTML = guess;
   enableBtn("resetBtn"); enableBtn("clearBtn");
   let feedback = evalGuess(guess, randNum);
-  result.innerHTML = feedback;
+  result.innerHTML = feedback + ' hint:' + guess + ' ' + randNum + ' ' + minNum + ' ' + maxNum;
 }
 
 function evalGuess(guess, winner) {
@@ -29,11 +30,12 @@ function getRandom() {
 }
 
 function handleChange(input) {
-  if (input.value < minNum ) {lastNote.innerHTML = 'Input too low ' + minNum;
-    document.getElementById('guessInput').value = '';
+  let checkVal = parseInt(input.value)
+  if (checkVal < minNum ) {lastNote.innerHTML = 'Input too low ';
+    document.getElementById('guessInput').value = null;
   }
-  else if (input.value > maxNum ) {lastNote.innerHTML = 'Input too high ' + maxNum;
-    document.getElementById('guessInput').value = '';
+  else if (checkVal > maxNum ) {lastNote.innerHTML = 'Input too high ';
+    document.getElementById('guessInput').value = null;
   }
   else {lastNote.innerHTML = 'Good guess';
   }

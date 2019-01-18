@@ -16,11 +16,11 @@
     </nav>
 	   <div class="container-fluid">
         <div class="row range">
-          <input type='number' pattern="[0-9.]+" id="minRange" class="light" placeholder="min default = 1" />
-          <input type='number' pattern="[0-9.]+" id="maxRange" class="light" placeholder="max default = 100" /><button id="submit" onclick="aRange()">Set Range</button>
+          <input type='number' value=1 id="minRange" class="light" />
+          <input type='number' value=100 id="maxRange" class="light" /><button id="submit" onclick="aRange()">Set Range</button>
         </div>
         <div class="row input">
-          <input type="number" pattern="[0-9.]+" onchange="handleChange(this);" id="guessInput" class="light" placeholder="Enter your guess">
+          <input type="number" onchange="handleChange(this);" id="guessInput" class="light" placeholder="Enter your guess">
         </div>
         <div class="row commit">
           <button type="button" class="btn btn-dark" id="guessBtn" onclick="aGuess()" >Guess</button>
