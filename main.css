@@ -5,7 +5,7 @@ body {
 
 .navbar-nav.navbar-center {
     position: relative;
-    left: 44%;
+    left: 45.5%;
     transform: translatex(-50%);
     > ul {
       float: none;
@@ -18,17 +18,17 @@ body {
 }
 
 #title-1 {
-    color: red;
-    font-weight: 800;
+    color: #ED458B;
+    font-weight: 700;
 }
 
 #title-2 {
-    color: white;
-    font-weight: 400;
+    color: #E6E7E8;
+    font-weight: 300;
 }
 
 .btn-dark {
-  background: gray;
+  background: #929497;
   color: white;
   border-radius: 40px;
   width: 100px;
@@ -36,9 +36,10 @@ body {
 }
 
 .light {
-  font-weight: 400;
+  font-weight: 300;
 }
 
-.bold {
-  font-weight: 800;
+.bigpink {
+  color: #EB008B;
+  font-weight: 700;
 }
