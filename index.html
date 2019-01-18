@@ -20,6 +20,7 @@
           <input type='number' value=100 id="maxRange" class="light" /><button id="submit" onclick="aRange()">Set Range</button>
         </div>
         <div class="row input">
+          <div class="light" id="lastNote" >&nbsp;</div>
           <input type="number" onchange="handleChange(this);" id="guessInput" class="light" placeholder="Enter your guess">
         </div>
         <div class="row commit">
@@ -27,9 +28,9 @@
           <button type="button" class="btn btn-dark" id="clearBtn" disabled="disabled" onclick="aClear()" >Clear</button>
         </div>
         <div class="row feedback">
-          <h4 class="light" id="lastNote"></h4>
-          <h3 class="light" id="lastGuess"></h3>
-          <h2 class="light" id="result"></h2>
+          <h4>Your last guess was:</h4>
+          <h1 class="bigpink" id="lastGuess"></h1>
+          <h4 id="result"></h4>
         </div>
         <div class="row reset">
         <button type="button" class="btn btn-dark" id="resetBtn" disabled="disabled" onclick="aReset()">Reset</button>
