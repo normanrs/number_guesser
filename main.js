@@ -9,20 +9,32 @@ function aRange(){
   currentRange.innerHTML = ( 'Current range: ' + minNum + ' - ' + maxNum );
 }
 
+
 function aGuess(){
   let guess = parseInt(document.getElementById('guessInput').value);
   currentRange.innerHTML = ( 'Current range: ' + minNum + ' - ' + maxNum );
   lastGuess.innerHTML = guess;
   enableBtn("resetBtn"); enableBtn("clearBtn");
   let feedback = evalGuess(guess, randNum);
-  result.innerHTML = feedback + ' hint:' + randNum;
+  result.innerHTML = feedback;
 }
 
 function evalGuess(guess, winner) {
-  if ( guess === winner ) { return 'BOOM!'; }
-  else if ( guess > winner ){ return 'That is too high'; }
-  else if ( guess < winner ){ return 'That is too low'; }
+  if ( guess === winner ) {
+    levelUp();
+    randNum = getRandom();
+    return 'BOOM! Range LevelUp!';
+  }
+  else if ( guess > winner ){ return 'That is too high' + ' hint:' + randNum; }
+  else if ( guess < winner ){ return 'That is too low' + ' hint:' + randNum; }
   else { return 'Invalid entry'; }
+}
+
+function levelUp(){
+  let delta = 10
+  minNum = (minNum - delta);
+  maxNum = (maxNum + delta);
+  currentRange.innerHTML = ( 'Current range: ' + minNum + ' - ' + maxNum );
 }
 
 function getRandom() {
